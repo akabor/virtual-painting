@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="mystyle.css" />
+<body>
+  <script src="ball.js"></script>
+  <script>
+    const size = 30; // size of ball
+    const x = []; // position
+    const y = [];
+    const velocity_x = [];
+    const velocity_y = [];
+    const balls = []; // array to hold all free balls
+    let speed = 0; // wind speed
+    let gravity = 1;
+    const stepSize = 5; // step size every update
+    let xmouse, ymouse;
+    let totalFactoryOutput = 4;
+
+    function getRandom(step) {
+      // return value between +step and -step
+      return Math.random() * 2 * step - step;
+    }
+    function update() {
+        let nballs = balls.length;
+        let focus = nballs - totalFactoryOutput;
+        for (let i = focus; i < nballs; i++) {
+            x[i] += Math.random() * 20 - 10 + speed;
+            y[i] += Math.random() * 20 - 10;
+            makeBall(x[i], y[i], balls[i].style.backgroundColor);
+      }
+      setTimeout(update, 100); // this calls update ever 1/10 second
+    }
+    function factory(total) {
+      for (let i = 0; i < total; i++) {
+        makeBall(100, 300, "blue");
+        x[i] = 100;
+        y[i] = 300;
+      }
+    }
+
+    function randomColor() {
+      const colors = ["lightblue", "darkseagreen", "lavender", "lightcoral"];
+      return colors[Math.floor(Math.random() * 4)];
+    }
+
+    makeBall((window.innerWidth - 300), 100, "lightcoral");
+    makeBall(window.innerWidth/3,(window.innerHeight - 100), "darkseagreen");
+    makeBall(window.innerWidth/4,window.innerHeight/4, "lavender");
+    makeBall((window.innerWidth - 100), (window.innerHeight - 100), "lightblue");
+
+    window.onLoad = update();
+
+    var mouse = function (e) {
+      ymouse = e.clientY;
+      xmouse = e.clientX;
+      makeBall(xmouse, ymouse, randomColor());
+      totalFactoryOutput++; // one more made
+    };
+    if (window.addEventListener) {
+      document.addEventListener("mousedown", mouse, false);
+    }
+
+  </script>
+
+</body>
