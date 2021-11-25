@@ -11,3 +11,7 @@ Download all files to the same location on your machine. Drag the virtualPaintin
 ## Roadmap
 
 Future updates to this project will include more colors and different size dots.
+
+## License Information
+
+Please read all information located in the LICENSE file in this repository.
