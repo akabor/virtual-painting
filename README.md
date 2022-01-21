@@ -1,4 +1,4 @@
-# <a href="https://github.com/akabor/virtual-painting">Virtual Painting</a>
+# <a href="https://akabor.github.io/virtual-painting/">Virtual Painting</a>
 
 ## Project Description
 
